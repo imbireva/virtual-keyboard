@@ -193,3 +193,8 @@ const KEYBOARD_DATA = [
   },
 ];
 
+const keyboardChangingData = {
+  language: localStorage.getItem('language') || 'eng',
+  capslockOn: false,
+};
+
