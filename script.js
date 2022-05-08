@@ -511,3 +511,8 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
+// language local storage
+const setLocalStorage = () => {
+  localStorage.setItem('language', keyboardChangingData.language);
+};
+window.addEventListener('beforeunload', setLocalStorage);
