@@ -486,3 +486,28 @@ languageBtn.addEventListener('click', () => {
   changeLanguage();
 });
 
+// switch language by keys & write features
+document.addEventListener('keydown', (event) => {
+  const targetKey = document.querySelector(`[data-eventCode="${event.code}"]`);
+
+  if (targetKey) {
+    if (targetKey.getAttribute('data-type') === 'letter') {
+      textarea.textContent += targetKey.textContent;
+    } else if (event.code === 'Tab') {
+      textarea.textContent = `${textarea.textContent}    `;
+    } else if (event.code === 'Backspace') {
+      textarea.textContent = textarea.textContent.slice(0, -1);
+    } else if (event.code === 'Enter') {
+      textarea.textContent = `${textarea.textContent}\n`;
+    } else if (event.code === 'ShiftLeft'
+      || event.code === 'AltLeft') {
+      eventCodesOfPressedBtns.push(event.code);
+      if (eventCodesOfPressedBtns.length === 2
+        && (eventCodesOfPressedBtns.includes('ShiftLeft') && eventCodesOfPressedBtns.includes('AltLeft'))) {
+        changeLanguage();
+        eventCodesOfPressedBtns = [];
+      }
+    }
+  }
+});
+
