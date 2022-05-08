@@ -285,3 +285,32 @@ textarea.textContent = '';
 // create array for switch language feature
 let eventCodesOfPressedBtns = [];
 
+// add click highlight
+keyboard.addEventListener('mousedown', (event) => {
+  if (event.target.classList.contains('key')
+  && event.target.getAttribute('data-eventCode') !== 'CapsLock') {
+    event.target.classList.add('key_active');
+  }
+});
+keyboard.addEventListener('mouseup', (event) => {
+  if (event.target.classList.contains('key')
+  && event.target.getAttribute('data-eventCode') !== 'CapsLock') {
+    event.target.classList.remove('key_active');
+  }
+});
+// add press keyboard keys highlight
+document.addEventListener('keydown', (event) => {
+  const targetKey = document.querySelector(`[data-eventCode="${event.code}"]`);
+  if (targetKey
+    && (targetKey.getAttribute('data-eventCode') !== 'CapsLock')) {
+    targetKey.classList.add('key_active');
+  }
+});
+document.addEventListener('keyup', (event) => {
+  const targetKey = document.querySelector(`[data-eventCode="${event.code}"]`);
+  if (targetKey
+    && (targetKey.getAttribute('data-eventCode') !== 'CapsLock')) {
+    targetKey.classList.remove('key_active');
+  }
+});
+
