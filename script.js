@@ -314,3 +314,32 @@ document.addEventListener('keyup', (event) => {
   }
 });
 
+// change case feature
+const changeCase = () => {
+  if (!keyboardChangingData.capslockOn) {
+    for (let i = 0; i < keys.length; i += 1) {
+      if (keys[i].getAttribute('data-type')) {
+        keys[i].textContent = keys[i].textContent.toUpperCase();
+      }
+    }
+    keyboardChangingData.capslockOn = true;
+  } else {
+    for (let i = 0; i < keys.length; i += 1) {
+      if (keys[i].getAttribute('data-type')) {
+        keys[i].textContent = keys[i].textContent.toLowerCase();
+      }
+    }
+    keyboardChangingData.capslockOn = false;
+  }
+};
+capslockKey.addEventListener('click', () => {
+  capslockKey.classList.toggle('key_active');
+  changeCase();
+});
+document.addEventListener('keydown', (event) => {
+  if (event.code === 'CapsLock') {
+    capslockKey.classList.toggle('key_active');
+    changeCase();
+  }
+});
+
