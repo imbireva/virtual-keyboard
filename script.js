@@ -481,3 +481,8 @@ const changeLanguage = () => {
     keyboardChangingData.language = 'eng';
   }
 };
+// switch language by button click
+languageBtn.addEventListener('click', () => {
+  changeLanguage();
+});
+
