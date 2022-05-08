@@ -343,3 +343,89 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
+// change case with shift key
+// mouse events
+shiftLeftKey.addEventListener('mousedown', () => {
+  for (let i = 0; i < keys.length; i += 1) {
+    if (keys[i].getAttribute('data-type')) {
+      if (capslockKey.classList.contains('key_active')) {
+        keys[i].textContent = keys[i].textContent.toLowerCase();
+        keyboardChangingData.capslockOn = false;
+      } else {
+        keys[i].textContent = keys[i].textContent.toUpperCase();
+        keyboardChangingData.capslockOn = true;
+      }
+    }
+  }
+});
+shiftLeftKey.addEventListener('mouseup', () => {
+  for (let i = 0; i < keys.length; i += 1) {
+    if (keys[i].getAttribute('data-type')) {
+      if (capslockKey.classList.contains('key_active')) {
+        keys[i].textContent = keys[i].textContent.toUpperCase();
+        keyboardChangingData.capslockOn = true;
+      } else {
+        keys[i].textContent = keys[i].textContent.toLowerCase();
+        keyboardChangingData.capslockOn = false;
+      }
+    }
+  }
+});
+shiftRightKey.addEventListener('mousedown', () => {
+  for (let i = 0; i < keys.length; i += 1) {
+    if (keys[i].getAttribute('data-type')) {
+      if (capslockKey.classList.contains('key_active')) {
+        keys[i].textContent = keys[i].textContent.toLowerCase();
+        keyboardChangingData.capslockOn = false;
+      } else {
+        keys[i].textContent = keys[i].textContent.toUpperCase();
+        keyboardChangingData.capslockOn = true;
+      }
+    }
+  }
+});
+shiftRightKey.addEventListener('mouseup', () => {
+  for (let i = 0; i < keys.length; i += 1) {
+    if (keys[i].getAttribute('data-type')) {
+      if (capslockKey.classList.contains('key_active')) {
+        keys[i].textContent = keys[i].textContent.toUpperCase();
+        keyboardChangingData.capslockOn = true;
+      } else {
+        keys[i].textContent = keys[i].textContent.toLowerCase();
+        keyboardChangingData.capslockOn = false;
+      }
+    }
+  }
+});
+// keyboard events
+document.addEventListener('keydown', (event) => {
+  if (event.code === 'ShiftLeft' || event.code === 'ShiftRight') {
+    for (let i = 0; i < keys.length; i += 1) {
+      if (keys[i].getAttribute('data-type')) {
+        if (capslockKey.classList.contains('key_active')) {
+          keys[i].textContent = keys[i].textContent.toLowerCase();
+          keyboardChangingData.capslockOn = false;
+        } else {
+          keys[i].textContent = keys[i].textContent.toUpperCase();
+          keyboardChangingData.capslockOn = true;
+        }
+      }
+    }
+  }
+});
+document.addEventListener('keyup', (event) => {
+  if (event.code === 'ShiftLeft' || event.code === 'ShiftRight') {
+    for (let i = 0; i < keys.length; i += 1) {
+      if (keys[i].getAttribute('data-type')) {
+        if (capslockKey.classList.contains('key_active')) {
+          keys[i].textContent = keys[i].textContent.toUpperCase();
+          keyboardChangingData.capslockOn = true;
+        } else {
+          keys[i].textContent = keys[i].textContent.toLowerCase();
+          keyboardChangingData.capslockOn = false;
+        }
+      }
+    }
+  }
+});
+
