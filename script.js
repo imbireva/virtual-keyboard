@@ -285,6 +285,18 @@ textarea.textContent = '';
 // create array for switch language feature
 let eventCodesOfPressedBtns = [];
 
+// remove default actions
+textarea.addEventListener('mousedown', (event) => {
+  event.preventDefault();
+});
+document.addEventListener('keydown', (event) => {
+  if (event.code === 'Tab'
+  || event.code === 'AltLeft'
+  || event.code === 'AltRight') {
+    event.preventDefault();
+  }
+});
+
 // add click highlight
 keyboard.addEventListener('mousedown', (event) => {
   if (event.target.classList.contains('key')
