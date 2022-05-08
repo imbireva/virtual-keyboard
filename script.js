@@ -276,6 +276,7 @@ createDescription();
 // find the elements we need
 const keyboard = document.querySelector('.keyboard');
 const keys = document.querySelectorAll('.key');
+const languageBtn = document.querySelector('.language-button');
 const capslockKey = document.querySelector('[data-eventCode="CapsLock"]');
 const shiftLeftKey = document.querySelector('[data-eventCode="ShiftLeft"]');
 const shiftRightKey = document.querySelector('[data-eventCode="ShiftRight"]');
