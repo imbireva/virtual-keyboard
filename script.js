@@ -198,3 +198,78 @@ const keyboardChangingData = {
   capslockOn: false,
 };
 
+const createTextarea = () => {
+  const textArea = document.createElement('textarea');
+  textArea.className = 'textarea';
+  textArea.setAttribute('cols', '85');
+  textArea.setAttribute('rows', '10');
+  document.body.append(textArea);
+};
+
+const createKeyboard = () => {
+  const keyboard = document.createElement('div');
+  keyboard.className = 'keyboard';
+  document.body.append(keyboard);
+};
+
+const createKeys = () => {
+  const keyboard = document.querySelector('.keyboard');
+
+  KEYBOARD_DATA.forEach((keyData) => {
+    const newKey = document.createElement('div');
+
+    newKey.setAttribute('data-engLayout', `${keyData.engLayout}`);
+    newKey.setAttribute('data-rusLayout', `${keyData.rusLayout}`);
+    newKey.setAttribute('data-type', `${keyData.type}`);
+    newKey.setAttribute('data-eventCode', `${keyData.eventCode}`);
+
+    newKey.className = 'key';
+
+    if (keyData.eventCode === 'Backspace'
+      || keyData.eventCode === 'CapsLock'
+      || keyData.eventCode === 'Enter'
+      || keyData.eventCode === 'ShiftLeft'
+      || keyData.eventCode === 'ShiftRight'
+    ) {
+      newKey.classList.add('key_wide');
+    }
+
+    if (keyData.eventCode === 'Space') {
+      newKey.classList.add('key_space');
+    }
+
+    if (keyboardChangingData.language === 'eng') {
+      newKey.textContent = newKey.getAttribute('data-engLayout');
+    } else {
+      newKey.textContent = newKey.getAttribute('data-rusLayout');
+    }
+
+    keyboard.append(newKey);
+  });
+};
+
+const createDescription = () => {
+  const description = document.createElement('div');
+  description.className = 'description';
+  document.body.append(description);
+
+  const system = document.createElement('p');
+  system.textContent = 'The keyboard was created in Windows OS';
+  description.append(system);
+
+  const language = document.createElement('p');
+  language.textContent = 'To switch language use left Shift & Alt on your keyboard or click the button below';
+  description.append(language);
+
+  const languageBtn = document.createElement('button');
+  languageBtn.className = 'language-button';
+  languageBtn.textContent = 'Switch language!';
+  description.append(languageBtn);
+};
+
+// create page layout
+createTextarea();
+createKeyboard();
+createKeys();
+createDescription();
+
