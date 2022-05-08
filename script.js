@@ -261,7 +261,7 @@ const createDescription = () => {
   language.textContent = 'To switch language use left Shift & Alt on your keyboard or click the button below';
   description.append(language);
 
-  const languageBtn = document.createElement('button');
+  const languageBtn = document.createElement('div');
   languageBtn.className = 'language-button';
   languageBtn.textContent = 'Switch language!';
   description.append(languageBtn);
