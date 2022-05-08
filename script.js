@@ -273,3 +273,15 @@ createKeyboard();
 createKeys();
 createDescription();
 
+// find the elements we need
+const keyboard = document.querySelector('.keyboard');
+const keys = document.querySelectorAll('.key');
+const capslockKey = document.querySelector('[data-eventCode="CapsLock"]');
+const shiftLeftKey = document.querySelector('[data-eventCode="ShiftLeft"]');
+const shiftRightKey = document.querySelector('[data-eventCode="ShiftRight"]');
+const textarea = document.querySelector('.textarea');
+// start with empty textarea
+textarea.textContent = '';
+// create array for switch language feature
+let eventCodesOfPressedBtns = [];
+
