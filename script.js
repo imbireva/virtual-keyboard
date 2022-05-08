@@ -441,3 +441,27 @@ document.addEventListener('keyup', (event) => {
   }
 });
 
+// write with mouse clicks
+const writeLetters = () => {
+  for (let i = 0; i < keys.length; i += 1) {
+    if (keys[i].getAttribute('data-type') === 'letter') {
+      keys[i].addEventListener('click', () => {
+        textarea.textContent += keys[i].textContent;
+      });
+    } else if (keys[i].getAttribute('data-eventCode') === 'Tab') {
+      keys[i].addEventListener('click', () => {
+        textarea.textContent = `${textarea.textContent}    `;
+      });
+    } else if (keys[i].getAttribute('data-eventCode') === 'Backspace') {
+      keys[i].addEventListener('click', () => {
+        textarea.textContent = textarea.textContent.slice(0, -1);
+      });
+    } else if (keys[i].getAttribute('data-eventCode') === 'Enter') {
+      keys[i].addEventListener('click', () => {
+        textarea.textContent = `${textarea.textContent}\n`;
+      });
+    }
+  }
+};
+writeLetters();
+
