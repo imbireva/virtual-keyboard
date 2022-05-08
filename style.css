@@ -81,3 +81,19 @@ body {
     text-align: center;
     letter-spacing: 0.5px;
 }
+
+.language-button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    font-family: inherit;
+    font-size: 16px;
+    border: solid 2px #F5EEF8;
+    border-radius: 3px;
+    background: #F5EEF8;
+    transition: .4s;
+    cursor: pointer;
+}
+
+.language-button:hover {
+    border-color: #76448A;
+}
