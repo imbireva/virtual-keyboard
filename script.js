@@ -466,3 +466,18 @@ const writeLetters = () => {
 };
 writeLetters();
 
+// change language
+// function
+const changeLanguage = () => {
+  if (keyboardChangingData.language === 'eng') {
+    for (let i = 0; i < keys.length; i += 1) {
+      keys[i].textContent = keys[i].getAttribute('data-rusLayout');
+    }
+    keyboardChangingData.language = 'rus';
+  } else {
+    for (let i = 0; i < keys.length; i += 1) {
+      keys[i].textContent = keys[i].getAttribute('data-engLayout');
+    }
+    keyboardChangingData.language = 'eng';
+  }
+};
