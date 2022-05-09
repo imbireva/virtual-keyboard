@@ -293,7 +293,8 @@ textarea.addEventListener('mousedown', (event) => {
 document.addEventListener('keydown', (event) => {
   if (event.code === 'Tab'
   || event.code === 'AltLeft'
-  || event.code === 'AltRight') {
+  || event.code === 'AltRight'
+  || event.code === 'Space') {
     event.preventDefault();
   }
 });
